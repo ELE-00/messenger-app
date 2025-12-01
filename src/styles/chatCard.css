@@ -1,0 +1,31 @@
+
+.chatCardWrapper{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(67, 81, 97);
+    padding: 5px;
+    padding-left: 10px;
+    gap: 10px;
+}
+
+.chatCardWrapper:hover {
+    background-color: rgb(38, 64, 92);
+    
+}
+
+.profilPicSection{
+    display: flex;
+    align-items: center;
+}
+
+
+.infoSection{
+    width: 100%;
+}
+
+
+.CCProfilPic{
+        height: 50px;
+        width: 50px;
+    border-radius: 50%;
+}

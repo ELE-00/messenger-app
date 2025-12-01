@@ -1,0 +1,61 @@
+
+.messageItemWrapper{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    padding-left: 20px;
+    gap: 10px;
+    /* border: 1px solid rgb(17, 255, 0); */
+}
+
+
+.myMessage {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 20px;
+    gap: 10px;
+    background-color: rgb(38, 64, 92);
+    text-align: right;
+}
+
+.otherMessage {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 20px;
+    gap: 10px;
+    background-color: rgb(60, 100, 142);
+    text-align: left;
+}
+
+
+
+.myMessage .time{
+    font-size: 14px;
+    color: rgb(79, 129, 183);
+}
+
+
+.otherMessage .time{
+    font-size: 14px;
+    color: rgb(92, 152, 216);
+}
+
+
+
+.messageItemWrapper:hover {
+    background-color: rgb(38, 64, 92);
+    
+}
+
+.messageItemSection{
+    display: flex;
+    align-items: center;
+}
+
+.msgProfilPic{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}

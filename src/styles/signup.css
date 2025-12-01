@@ -1,0 +1,40 @@
+
+
+.signupWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+
+.formWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgb(32, 55, 79);
+    padding: 2%;
+    width: 30vw;
+
+
+    border-radius: 10px;
+
+}
+
+.signupForm{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
+
+
+}
+
+input{    
+    background-color: rgb(0, 25, 53);
+    border: none;
+    height: 30px;
+    border-radius: 10px;
+    padding: 2%;
+}

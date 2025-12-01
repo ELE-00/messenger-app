@@ -1,0 +1,34 @@
+{
+  "name": "messenger-app",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/ELE-00/messenger-app#readme",
+  "bugs": {
+    "url": "https://github.com/ELE-00/messenger-app/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ELE-00/messenger-app.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.90.11",
+    "axios": "^1.13.2",
+    "jwt-decode": "^4.0.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.9.6"
+  },
+  "devDependencies": {
+    "vite": "^7.2.4"
+  }
+}

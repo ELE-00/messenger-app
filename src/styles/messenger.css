@@ -1,0 +1,21 @@
+
+
+.contentWrapper{
+    display: flex;
+    height: 100vh;
+}
+
+.profileDialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgb(103, 103, 103);
+  border-radius: 10px;
+  padding: 0;
+  z-index: 1000;
+  height: 40vh;
+  width: 20vw;
+  background-color: rgb(32, 55, 79);
+
+}
