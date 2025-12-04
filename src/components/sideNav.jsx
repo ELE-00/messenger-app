@@ -2,12 +2,33 @@
 import React, {useEffect, useState} from 'react';
 import '../styles/sideNav.css'
 import backArrow from "../assets/backarrow.png";
-import profilePic from "../assets/profilepic.jpg";
+import profilePicMock from "../assets/profilepic.jpg";
+import {getUserData as getUserDataAPI } from '../api/auth';
 
 
 function SideNav ({isOpen, item, handleClose, handleOpenProfile}) {
 
-    console.log(item)
+        const [userData, setUserData] = useState({
+            name:"",
+            profilepic: ""
+        });
+
+    useEffect(() => {
+        const fetchData = async () => {
+
+            try {
+                const res = await getUserDataAPI(item);
+                setUserData({
+                name: res.data.name,
+                profilepic: res.data.profilepic
+                })
+                console.log("User fetched: ", res.data);
+            } catch (err) {
+                console.log(err)
+            }
+        }
+        fetchData();
+    }, [item]);
 
     return (
         <div className={`sideNavWrapper ${isOpen ? "open" : ""}`}>
@@ -18,8 +39,12 @@ function SideNav ({isOpen, item, handleClose, handleOpenProfile}) {
                 </div>
 
                 <div className="profileInfo">
-                    <img className="SNProfilPic" src={profilePic} alt="profilepic.jpg" id="profileicon2" ></img>
-                    {item.username}               
+                    {userData.profilepic? (
+                    <img className="SNProfilPic" src={userData.profilepic} alt="profilepic"></img>
+                    ): (
+                    <img className="SNProfilPic" src={profilePicMock} alt="profilepic.jpg"></img>    
+                    )}
+                    {userData.name}               
 
                 </div>           
             </div>

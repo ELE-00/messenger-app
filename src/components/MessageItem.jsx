@@ -1,12 +1,13 @@
 //MessageItem.jsx
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import '../styles/messageItem.css'
 import { useAuth } from '../context/AuthContext';
-import profilePic from "../assets/profilepic.jpg";
+import profilePicMock from "../assets/profilepic.jpg";
+import {getUserData as getUserDataAPI } from '../api/auth';
 
 
+function MessageItem({item, sender}) {
 
-function MessageItem({item}) {
 
     //Converting date to time only
     const date = new Date(item.createdAt);
@@ -18,7 +19,11 @@ function MessageItem({item}) {
     return  (
         <div className="messageItemWrapper">
             <div className="msgProfilPicSection">
-                <img className="msgProfilPic" src={profilePic} alt="profilepic.jpg" id="profileicon2" ></img>
+                <img 
+                    className="msgProfilPic" 
+                    src={sender?.profilepic || profilePicMock} 
+                    alt="profilepic" 
+                />
             </div>
 
             <div className={`messageSection ${item.senderId === user.id ? "myMessage" : "otherMessage"}`}>

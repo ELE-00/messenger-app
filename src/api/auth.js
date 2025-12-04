@@ -30,6 +30,18 @@ export const getAllUsers = async () => {
     return axiosClient.get("/api/conversations/users");
 }
 
+
+//USER DATA
 export const getUserData = async (userId) => {
-    return axiosClient.get("/api/conversations/user", userId);
+    return axiosClient.get("/api/user", userId);
 }
+
+export const sendUserData = async (formData) => {
+    return axiosClient.post("/api/user", formData);
+}
+
+export const uploadProfilePic = async (formData) => {
+    return axiosClient.post("/api/user/profilepic", formData, {
+        headers: { "Content-Type": "multipart/form-data" }
+    });
+};
