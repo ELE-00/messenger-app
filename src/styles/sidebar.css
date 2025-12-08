@@ -3,9 +3,11 @@
 .sidebarWrapper{
     width: 20vw;
     height: 100%;
-    background-color: rgb(32, 55, 79);
+    background: 
+    linear-gradient(#412a5e,#18131e) padding-box,
+    linear-gradient(to top, #3F3051 30%, #281F33 100%) border-box;
     color: aliceblue;
-    border-right: 1px solid rgb(0, 25, 53);
+    border-right: 1px solid #18131e;
 }
 
 
@@ -15,8 +17,8 @@
     align-items: center;
     padding-left: 5px;
     padding-right: 5px;
-    height: 6vh;
-    border-bottom: 1px solid rgb(0, 25, 53);
+    height: 7vh;
+    border-bottom: 1px solid #18131e;
 
 }
 

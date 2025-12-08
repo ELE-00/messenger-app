@@ -15,7 +15,7 @@
     padding: 10px;
     border-radius: 20px;
     gap: 10px;
-    background-color: rgb(38, 64, 92);
+    background-color: #6e568d;
     text-align: right;
 }
 
@@ -25,27 +25,25 @@
     padding: 10px;
     border-radius: 20px;
     gap: 10px;
-    background-color: rgb(60, 100, 142);
+    background-color: #3F3051;
     text-align: left;
 }
 
-
-
 .myMessage .time{
     font-size: 14px;
-    color: rgb(79, 129, 183);
+    color: #3F3051;
 }
 
 
 .otherMessage .time{
     font-size: 14px;
-    color: rgb(92, 152, 216);
+    color: #7a5f9c;
 }
 
 
 
 .messageItemWrapper:hover {
-    background-color: rgb(38, 64, 92);
+    background-color: none;
     
 }
 

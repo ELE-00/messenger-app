@@ -4,21 +4,36 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: rgb(0, 25, 53);
+    background-color: #281F33;
+    background-image: 
+    linear-gradient(#0f091548),
+    url("src/assets/chatbg.png");
+    background-repeat: repeat;
     color: aliceblue;
     height: 100vh;
     
-    
+     
 }
 
+
 .infoBarSection{
-    height: 6vh;
-    background-color: rgb(32, 55, 79);
+    height: 7vh;
+    background-color: #412a5e;
     padding-left: 20px;
     padding-top: 10px;
     font-size: 1.1rem;
     flex-shrink: 0;
 
+}
+
+.onlineStatus{
+    color: rgb(255, 119, 239); 
+    font-size: 0.9rem; 
+}
+
+.offlineStatus{
+    color: rgb(142, 142, 142); 
+    font-size: 0.9rem; 
 }
 
 .chatSection {
@@ -37,16 +52,19 @@ ul{
     align-items: space-between;
     justify-content: center;
     flex-direction: column;
-    height: 6vh;
+    height: 7vh;
     width: 100%;
-    background-color: rgb(32, 55, 79); 
+    background-color: #18131e; 
     flex-shrink: 0;
 }
 
 .messageInput{
     background-color: transparent;
-    width: 90%;
+    border: none;
+    width: 100%;
     font-size: 1rem;
+    padding-left: 20px;
+
     
 
 }
@@ -55,3 +73,15 @@ ul{
     outline: none;
     border: none;
 }
+
+.chatWindowWrapperEmpty{
+    color: rgba(189, 189, 189, 0.655);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    font-size: 1.5rem;
+
+}
+

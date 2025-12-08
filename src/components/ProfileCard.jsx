@@ -98,7 +98,7 @@ function ProfileCard ({handleCloseProfile}) {
 
             <button
                 type="button"
-                className="navBtn"
+                className="profileEditBtn"
                 onClick={() => document.getElementById("fileInput").click()}
             >
                 Upload
@@ -131,8 +131,8 @@ function ProfileCard ({handleCloseProfile}) {
                     </div>
 
                         <div className="formBtn">
-                            <button type="Submit" >Save</button>  
-                            <button onClick={handleCloseProfile}>Close</button>   
+                            <button className="bioBtn" type="Submit" >Save</button>  
+                            <button className="bioBtn" onClick={handleCloseProfile}>Close</button>   
                         </div>
                     
                 </form>

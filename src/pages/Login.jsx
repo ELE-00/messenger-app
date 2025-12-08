@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 
-    const { setUser } = useAuth();
+    const { login } = useAuth();
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -31,7 +31,7 @@ const Login = () => {
             console.log(res.data);
             
             //Set logged in user to local storage
-            setUser({
+            login({
                 id: res.data.user.id,
                 username: res.data.username,
                 token: res.data.token
@@ -51,15 +51,15 @@ const Login = () => {
         <div className="loginWrapper">
 
             <div className="formWrapper">
-            <h2>Welcome to Messenger</h2>
+            <h2>Welcome to Whispr</h2>
             <h3>Please login</h3>
             
             <form className="loginForm" onSubmit={handlelogin}>
                 <label className="loginLabel" for="username">Username:</label>
-                <input id="username" name="username" placeholder="username" type="text" value={formData.username} onChange={handleChange}/>
+                <input className="loginInput" id="username" name="username" placeholder="username" type="text" value={formData.username} onChange={handleChange}/>
                 <label className="loginLabel" for="password">Password</label>
-                <input id="password" name="password" type="password" value={formData.password} onChange={handleChange}/>
-                <button className="loginBn" type="submit">Log In</button>
+                <input className="loginInput"  id="password" name="password" type="password" value={formData.password} onChange={handleChange}/>
+                <button className="loginBtn" type="submit">Log In</button>
             </form>
             <p className="msgFormText">New account? <a className="Link" href="/signup">Sign up here</a></p>
 

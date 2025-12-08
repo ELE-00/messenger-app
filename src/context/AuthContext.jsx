@@ -1,14 +1,13 @@
 
 //AuthContext.jsx
-
-import React, { Children } from "react";
-import {createContext, useContext, useState, useEffect} from "react";
+import React, {createContext, useContext, useState, useEffect} from "react";
+import {socket} from "../socket.js";
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({children}) => {
     const [user, setUser] = useState(() => {
-    // only for development, remove for production
+    // DEV MODE AUTO LOGIN
     if (import.meta.env.DEV) {
         return {
         id: 1,
@@ -16,25 +15,47 @@ export const AuthProvider = ({children}) => {
         token: "dev-token"
         };
     }
-    return null;
+    
+    //PRODUCTION PERSISTED LOGIN
+    const savedUser = localStorage.getItem("user");
+    return savedUser ? JSON.parse(savedUser) : null;
+
     });
         
+    //LOGIN function
+    const login = (userData) => {
+        setUser(userData);
+        localStorage.setItem("user", JSON.stringify(userData));
+        
+        socket.connect();
+        socket.emit("user-online", userData.id);
+    };
 
-    //Persist login
+    //LOGOUT function
+    const logout = () => {
+        if(user) {
+            socket.emit("user-offline", user.id);
+        }
+
+        socket.disconnect();
+
+        setUser(null)
+        localStorage.removeItem("user")
+    }
+
+
+    // When user state changes: auto connect
     useEffect(() => {
-        const saved = localStorage.getItem("user");
-        if(saved) setUser(JSON.parse(saved));    
-    }, []);
-
-
-    useEffect (() => {
-        if(user) localStorage.setItem("user", JSON.stringify(user)) 
+        if (user) {
+            socket.connect();
+            socket.emit("user-online", user.id);
+        }
     }, [user]);
 
 
 
     return (
-        <AuthContext.Provider value = {{user, setUser}}>
+        <AuthContext.Provider value = {{user, login, logout}}>
         {children}
         </AuthContext.Provider>
     )

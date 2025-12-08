@@ -4,9 +4,12 @@ import '../styles/sideNav.css'
 import backArrow from "../assets/backarrow.png";
 import profilePicMock from "../assets/profilepic.jpg";
 import {getUserData as getUserDataAPI } from '../api/auth';
+import { useAuth } from '../context/AuthContext';
 
 
-function SideNav ({isOpen, item, handleClose, handleOpenProfile}) {
+function SideNav ({isOpen, item, handleSideNavClose, handleOpenProfile, handleNewGroupChat}) {
+
+    const {logout} = useAuth();
 
         const [userData, setUserData] = useState({
             name:"",
@@ -35,7 +38,7 @@ function SideNav ({isOpen, item, handleClose, handleOpenProfile}) {
             <div className="sideNavHeader">
 
                 <div className="backButton">
-                    <img className="headerIcons" src={backArrow} alt="backArrow.png" id="backArrow" onClick={() => handleClose(false)} ></img> 
+                    <img className="headerIcons" src={backArrow} alt="backArrow.png" id="backArrow" onClick={() => handleSideNavClose(false)} ></img> 
                 </div>
 
                 <div className="profileInfo">
@@ -53,7 +56,8 @@ function SideNav ({isOpen, item, handleClose, handleOpenProfile}) {
                 <div className="profleLink">
                 <p onClick={handleOpenProfile}>My Profile</p>
                 </div>
-                <p>Logout</p>
+                <p onClick={handleNewGroupChat}>New group chat</p>
+                <p onClick={logout}>Logout</p>
             </div>
         </div>
     )

@@ -3,6 +3,7 @@ import '../styles/chatWindow.css';
 import { getMessages as getMessagesAPI, getAllUsers as getAllUsersAPI, sendMessage as sendMessageAPI } from '../api/auth';
 import MessageItem from './MessageItem';
 import { useAuth } from '../context/AuthContext';
+import { socket } from '../socket';
 
 function ChatWindow({item}) {
     const { recipientId, recipientName, chatId } = item;
@@ -11,6 +12,8 @@ function ChatWindow({item}) {
     const [messages, setMessages] = useState([]);
     const [inputMessage, setInputMessage] = useState("");
     const [users, setUsers] = useState({}); // store all users in a map { id: user }
+    const [onlineUsers, setOnlineUsers] = useState([]);
+
 
     // Fetch messages
     useEffect(() => {
@@ -43,6 +46,36 @@ function ChatWindow({item}) {
         fetchUsers();
     }, []);
 
+
+    //Received list of online users
+    useEffect(() => {
+        socket.on("online-users", (onlineList) => {
+            setOnlineUsers(onlineList);
+        });
+
+        return () => socket.off("online-users")
+    },[]);
+    
+    //Check if recepient is online
+    const isRecipientOnline  = onlineUsers.includes(recipientId)
+
+
+    // If no chat selected
+    if (!chatId) {
+        return (
+            <div className="chatWindowWrapper">
+                <div className="infoBarSection"></div>
+               
+                <div className="chatWindowWrapperEmpty">
+                    <p>Select a chat to start messaging</p>
+                </div>
+
+                <div className="footerSection"></div>
+            </div>
+        );
+    }
+
+    //Sending messages
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -51,7 +84,6 @@ function ChatWindow({item}) {
         try {
             const res = await sendMessageAPI(chatId, {
                 senderId: user.id,
-                recipientId,
                 content: inputMessage
             });
             // Add new message to state
@@ -65,7 +97,12 @@ function ChatWindow({item}) {
 
     return (
         <div className="chatWindowWrapper">
-            <div className="infoBarSection">{recipientName}</div>
+            <div className="infoBarSection">
+                {recipientName}
+                <div className={isRecipientOnline ? "onlineStatus" : "offlineStatus"}>
+                    {isRecipientOnline? "Online" : "last seen recently"}</div>
+            </div>
+            
 
             <div className="chatSection">
                 <ul>
@@ -77,7 +114,9 @@ function ChatWindow({item}) {
                         />
                     ))}
                 </ul>
-            </div>
+            </div>  
+
+
 
             <div className="footerSection">
                 <form onSubmit={handleSubmit}>

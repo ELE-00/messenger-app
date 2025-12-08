@@ -14,9 +14,12 @@ export const getConversations = async (userData) => {
     return axiosClient.get("/api/conversations", userData);
 }
 
-export const createConversation = async (userData) => {
-    return axiosClient.post("/api/conversations", userData);
-}
+export const createConversation = async (formData) => {
+    return axiosClient.post("/api/conversations", formData, {
+        headers: { "Content-Type": "multipart/form-data" }
+    });
+};
+
 
 export const getMessages = async (chatId) => {
     return axiosClient.get(`/api/conversations/${chatId}`);
@@ -45,3 +48,5 @@ export const uploadProfilePic = async (formData) => {
         headers: { "Content-Type": "multipart/form-data" }
     });
 };
+
+

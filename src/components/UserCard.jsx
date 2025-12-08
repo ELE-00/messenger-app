@@ -1,20 +1,24 @@
 //Chatcard.jsx
 import React from 'react';
 import '../styles/chatCard.css'
-import profilePic from "../assets/profilepic.jpg";
+import profilePicMock from "../assets/profilepic.jpg";
 
 
 
 
 
-function UserCard({item}) {
+function UserCard({item, onClick}) {
 
     console.log(item)
 
     return  (
-        <div className="chatCardWrapper">
+        <div className="chatCardWrapper" onClick={onClick}>
             <div className="profilPicSection">
-                <img className="CCProfilPic" src={profilePic} alt="profilepic.jpg" id="profileicon2" ></img>
+                <img 
+                    className="msgProfilPic" 
+                    src={item.profilepic || profilePicMock} 
+                    alt="profilepic" 
+                />
             </div>
 
             <div className="infoSection" >

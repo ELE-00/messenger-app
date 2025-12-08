@@ -5,6 +5,12 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background: 
+    linear-gradient(#3F3051,#281F33) padding-box,
+    linear-gradient(to top, #3F3051 30%, #281F33 100%) border-box;
+    background-image: 
+    url("src/assets/background.jpg");
+    background-size: 100% 100%;
 
 }
 
@@ -13,12 +19,14 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: rgb(32, 55, 79);
+    background: 
+    linear-gradient(#412a5e,#18131e) padding-box,
+    linear-gradient(to top, #3F3051 30%, #281F33 100%) border-box;
     padding: 2%;
     width: 30vw;
-
-
     border-radius: 10px;
+    border: 1px solid #d4b7fadf;
+    box-shadow: 0px 0px 15px 2px #8e37ff;
 
 }
 
@@ -31,10 +39,18 @@
 
 }
 
-input{    
-    background-color: rgb(0, 25, 53);
+.signupInput{    
+    background-color: #bf8eff21;
     border: none;
     height: 30px;
     border-radius: 10px;
     padding: 2%;
+}
+
+.signupBtn{
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #bf8effdf;
+    height: 3vh;
 }

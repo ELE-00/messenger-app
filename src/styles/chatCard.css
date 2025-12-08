@@ -2,14 +2,14 @@
 .chatCardWrapper{
     display: flex;
     align-items: center;
-    border-bottom: 1px solid rgb(67, 81, 97);
+    border-bottom: 1px solid rgb(0, 0, 0);
     padding: 5px;
     padding-left: 10px;
     gap: 10px;
 }
 
 .chatCardWrapper:hover {
-    background-color: rgb(38, 64, 92);
+    background-color: #4f3c65;
     
 }
 
