@@ -1,31 +1,67 @@
 # Whispr
 
-A real-time messaging app built with React and Socket.IO.
+A full-stack real-time messaging application with authentication, group chats, file uploads, and live updates using **Socket.io**. Built with a modern JavaScript stack and modular architecture.
+This project is part of The Odin Project curriculum.
+
+---
+
+### Login
+<img src="./src/assets/malogin.png" width="500" />
+
+### Chat View
+<img src="./src/assets/malogin2.png" width="500" />
+
+### Bio View
+<img src="./src/assets/malogin3.png" width="500" />
+
+---
 
 ## Tech Stack
 
-- **Framework:** React 19 + Vite
-- **Routing:** React Router
-- **HTTP:** Axios
-- **Real-time:** Socket.IO client
-- **Testing:** Vitest + Testing Library
+### Frontend
+| Tech | Description |
+|------|-------------|
+| <img src="https://skillicons.dev/icons?i=react" width="32"> | React 19 + Vite |
+| <img src="https://skillicons.dev/icons?i=socketio" width="32"> | Socket.io client |
+
+### Backend
+| Tech | Description |
+|------|-------------|
+| <img src="https://skillicons.dev/icons?i=nodejs" width="32"> | Node.js + Express |
+| <img src="https://skillicons.dev/icons?i=prisma" width="32"> | Prisma ORM |
+| <img src="https://skillicons.dev/icons?i=postgres" width="32"> | PostgreSQL |
+| <img src="https://skillicons.dev/icons?i=socketio" width="32"> | Socket.io server |
+
+> **Backend repo:** [https://github.com/ELE-00/messenger-api](https://github.com/ELE-00/messenger-api)
+
+---
 
 ## Features
 
-- User registration and login with JWT auth
-- Direct messages and group conversations
-- Real-time messaging via Socket.IO
+### Authentication
+- Register & login
+- Secure password hashing
+- Unique usernames
+- Profile picture upload
+
+### Conversations
+- One-to-one and group chats
+- Group profile picture upload
+- Live updates on new messages
+
+### Real-time
 - Typing indicators
 - Online/offline presence
-- Profile picture and bio editing
-- Image upload for group chats
+- Socket.io live events
+
+---
 
 ## Getting Started
 
 ### Prerequisites
 
 - Node.js 18+
-- [Whispr API](../messenger-api) running
+- [Whispr API](https://github.com/ELE-00/messenger-api) running
 
 ### Installation
 
@@ -50,6 +86,8 @@ cp .env.example .env
 ```bash
 npm run dev
 ```
+
+---
 
 ## Project Structure
 
@@ -78,6 +116,8 @@ src/
 └── main.jsx
 ```
 
+---
+
 ## Testing
 
 ```bash
@@ -86,3 +126,7 @@ npm run coverage  # run once with coverage report
 ```
 
 Tests live in `src/test/` and cover the Login page and ErrorBoundary component.
+
+---
+
+Built with ❤️, ☕, and too many console.log() statements
