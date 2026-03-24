@@ -24,10 +24,6 @@ const [selectedConvo, setSelectedConvo] = useState({
 
 //Handle getting messages
 function onSelectChat(chatId, recipientName, recipientId){
-    console.log("Received chat Id: " + chatId)
-    console.log("Received recipientId: " + recipientId)
-    console.log("Received recipientName: " + recipientName)
-
     setSelectedConvo({
         recipientId: recipientId,
         recipientName: recipientName,
@@ -41,9 +37,8 @@ function onSelectChat(chatId, recipientName, recipientId){
             try {
                 const res = await getAllUsersAPI();
                 setAllUsers(res.data)
-                console.log("All users: ", res.data);
             } catch (err) {
-                console.log(err)
+                // fetch failed
             }
         }
         fetchData();

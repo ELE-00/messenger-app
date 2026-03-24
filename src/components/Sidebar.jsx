@@ -23,13 +23,11 @@ function Sidebar({onSelectChat, handleOpenProfile, handleNewGroupChat, allUsers}
     //Fetch Conversations 
     useEffect(() => {
         const fetchData = async () => {
-            console.log("Logged in user: " + user.id)
             try {
                 const res = await getConversationsAPI(user);
                 setConverations(res.data)
-                console.log(res.data);
             } catch (err) {
-                console.log(err)
+                // fetch failed - sidebar shows empty
             }
         }
 

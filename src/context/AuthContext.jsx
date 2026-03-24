@@ -7,34 +7,23 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({children}) => {
     const [user, setUser] = useState(() => {
-    // DEV MODE AUTO LOGIN
-    if (import.meta.env.DEV) {
-        return {
-        id: 1,
-        username: "ele",
-        token: "dev-token"
-        };
-    }
-    
-    //PRODUCTION PERSISTED LOGIN
-    const savedUser = localStorage.getItem("user");
-    return savedUser ? JSON.parse(savedUser) : null;
-
+        const savedUser = localStorage.getItem("user");
+        return savedUser ? JSON.parse(savedUser) : null;
     });
-        
+
     //LOGIN function
     const login = (userData) => {
         setUser(userData);
         localStorage.setItem("user", JSON.stringify(userData));
-        
+        socket.auth = { token: userData.token };
         socket.connect();
-        socket.emit("user-online", userData.id);
+        socket.emit("user-online");
     };
 
     //LOGOUT function
     const logout = () => {
         if(user) {
-            socket.emit("user-offline", user.id);
+            socket.emit("user-offline");
         }
 
         socket.disconnect();
@@ -44,13 +33,14 @@ export const AuthProvider = ({children}) => {
     }
 
 
-    // When user state changes: auto connect
+    // On mount: reconnect socket if user is already logged in (persisted session)
     useEffect(() => {
         if (user) {
+            socket.auth = { token: user.token };
             socket.connect();
-            socket.emit("user-online", user.id);
+            socket.emit("user-online");
         }
-    }, [user]);
+    }, []);
 
 
 
@@ -62,4 +52,3 @@ export const AuthProvider = ({children}) => {
 }
 
 export const useAuth = () => useContext(AuthContext);
-

@@ -29,9 +29,8 @@ function ProfileCard ({handleCloseProfile}) {
                     bio: res.data.bio,
                     profilepic: res.data.profilepic
                  })
-                 console.log("User fetched: ", res.data);
              } catch (err) {
-                 console.log(err)
+                 // fetch failed - form stays empty
              }
          }
          fetchData();
@@ -53,9 +52,8 @@ function ProfileCard ({handleCloseProfile}) {
                 bio: formData.bio
             })
 
-            console.log(res.data)
         } catch (err) {
-            console.log(err)
+            // update failed
         }
     }
 
@@ -68,13 +66,12 @@ function ProfileCard ({handleCloseProfile}) {
             formDataImage.append("profilepic", file); // MUST MATCH multer name
 
             const res = await uploadProfilePic(formDataImage);
-            console.log("Image uploaded:", res.data);
 
             // Update local UI immediately
             setFormData(prev => ({ ...prev, profilepic: res.data.profilepic }));
 
         } catch (err) {
-            console.error(err);
+            // upload failed
         }
     };
 

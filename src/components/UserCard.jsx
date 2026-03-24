@@ -9,8 +9,6 @@ import profilePicMock from "../assets/profilepic.jpg";
 
 function UserCard({item, onClick}) {
 
-    console.log(item)
-
     return  (
         <div className="chatCardWrapper" onClick={onClick}>
             <div className="profilPicSection">

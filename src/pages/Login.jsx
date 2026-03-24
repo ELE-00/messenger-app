@@ -28,8 +28,6 @@ const Login = () => {
                 password: formData.password,
             })
 
-            console.log(res.data);
-            
             //Set logged in user to local storage
             login({
                 id: res.data.user.id,
@@ -40,7 +38,6 @@ const Login = () => {
             //Redirect to home
             navigate("/");
         } catch (err) {
-            console.log(err)
             alert("Login failed. Please try again.")
         }
     }

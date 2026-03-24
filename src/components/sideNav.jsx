@@ -25,9 +25,8 @@ function SideNav ({isOpen, item, handleSideNavClose, handleOpenProfile, handleNe
                 name: res.data.name,
                 profilepic: res.data.profilepic
                 })
-                console.log("User fetched: ", res.data);
             } catch (err) {
-                console.log(err)
+                // fetch failed
             }
         }
         fetchData();

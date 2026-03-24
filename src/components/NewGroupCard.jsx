@@ -62,8 +62,6 @@ const handleCreateGroup = async (e) => {
             headers: { "Content-Type": "multipart/form-data" }
         });
 
-        console.log("Group created:", res.data);
-
         // Optionally reset form
         setFormData({
             groupName: "",
@@ -72,7 +70,7 @@ const handleCreateGroup = async (e) => {
         });
 
     } catch (err) {
-        console.error(err);
+        // creation failed
     }
     handleCloseNewGroupForm();
     

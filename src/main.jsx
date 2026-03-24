@@ -10,6 +10,7 @@ import Signup from './pages/Signup.jsx'
 import Messenger from './pages/Messenger.jsx'
 import { AuthProvider } from './context/AuthContext.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
+import ErrorBoundary from './components/ErrorBoundary.jsx';
 
 const router = createBrowserRouter([
     {
@@ -26,8 +27,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
-        <AuthProvider>
-            <RouterProvider router = {router} />
-        </AuthProvider>
+        <ErrorBoundary>
+            <AuthProvider>
+                <RouterProvider router = {router} />
+            </AuthProvider>
+        </ErrorBoundary>
     </StrictMode>
 );

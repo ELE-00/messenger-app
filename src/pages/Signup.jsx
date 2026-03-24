@@ -27,12 +27,10 @@ const Signup = () => {
                 passwordConfirm: formData.passwordConfirm
             })
 
-            console.log(res.data)
             alert("Signup successful! You can now login.");
 
         } catch (err) {
-            console.log("Failed to create user")
-            console.log(err)
+            alert("Signup failed. Please try again.")
         }
 
 
