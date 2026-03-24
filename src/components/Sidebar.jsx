@@ -90,7 +90,9 @@ function Sidebar({onSelectChat, handleOpenProfile, handleNewGroupChat, allUsers}
         }
 
         // CASE 2: Create a new one
-        const newCovo = await createConversationAPI({ recipientId: targetUserId });
+        const formData = new FormData();
+        formData.append("participants", JSON.stringify([targetUserId]));
+        const newCovo = await createConversationAPI(formData);
         const res = await getConversationsAPI(user);
         setConverations(res.data);
 
