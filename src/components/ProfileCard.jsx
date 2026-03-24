@@ -46,12 +46,12 @@ function ProfileCard ({handleCloseProfile}) {
         e.preventDefault();
 
         try{
-            const res = await sendUserDataAPI({
+            await sendUserDataAPI({
                 username: formData.username,
                 name: formData.name,
                 bio: formData.bio
-            })
-
+            });
+            handleCloseProfile();
         } catch (err) {
             // update failed
         }
