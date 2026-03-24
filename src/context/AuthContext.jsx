@@ -11,6 +11,13 @@ export const AuthProvider = ({children}) => {
         return savedUser ? JSON.parse(savedUser) : null;
     });
 
+    //UPDATE USER function (after profile edits)
+    const updateUser = (updates) => {
+        const updated = { ...user, ...updates };
+        setUser(updated);
+        localStorage.setItem("user", JSON.stringify(updated));
+    };
+
     //LOGIN function
     const login = (userData) => {
         setUser(userData);
@@ -45,7 +52,7 @@ export const AuthProvider = ({children}) => {
 
 
     return (
-        <AuthContext.Provider value = {{user, login, logout}}>
+        <AuthContext.Provider value = {{user, login, logout, updateUser}}>
         {children}
         </AuthContext.Provider>
     )

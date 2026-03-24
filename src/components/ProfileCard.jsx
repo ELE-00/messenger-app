@@ -10,7 +10,7 @@ import { useAuth } from '../context/AuthContext';
 
 function ProfileCard ({handleCloseProfile}) {
 
-    const {user} = useAuth();
+    const {user, updateUser} = useAuth();
     const [formData, setFormData] = useState({
         username:"",
         name:"",
@@ -51,6 +51,7 @@ function ProfileCard ({handleCloseProfile}) {
                 name: formData.name,
                 bio: formData.bio
             });
+            updateUser({ username: formData.username });
             handleCloseProfile();
         } catch (err) {
             // update failed
