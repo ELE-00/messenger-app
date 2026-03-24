@@ -17,6 +17,8 @@ function ProfileCard ({handleCloseProfile}) {
         bio:"",
         profilepic: ""
     });
+    const [uploadError, setUploadError] = useState(null);
+    const [uploading, setUploading] = useState(false);
 
      useEffect(() => {
          const fetchData = async () => {
@@ -62,17 +64,20 @@ function ProfileCard ({handleCloseProfile}) {
         const file = e.target.files[0];
         if (!file) return;
 
+        setUploadError(null);
+        setUploading(true);
+
         try {
             const formDataImage = new FormData();
-            formDataImage.append("profilepic", file); // MUST MATCH multer name
+            formDataImage.append("profilepic", file);
 
             const res = await uploadProfilePic(formDataImage);
-
-            // Update local UI immediately
             setFormData(prev => ({ ...prev, profilepic: res.data.profilepic }));
-
         } catch (err) {
-            // upload failed
+            const msg = err.response?.data?.error || "Upload failed. Please try again.";
+            setUploadError(msg);
+        } finally {
+            setUploading(false);
         }
     };
 
@@ -98,9 +103,11 @@ function ProfileCard ({handleCloseProfile}) {
                 type="button"
                 className="profileEditBtn"
                 onClick={() => document.getElementById("fileInput").click()}
+                disabled={uploading}
             >
-                Upload
-            </button>               
+                {uploading ? "Uploading..." : "Upload"}
+            </button>
+            {uploadError && <p className="errorText">{uploadError}</p>}
 
 
 
