@@ -1,29 +1,22 @@
-
-
-.sideNavWrapper{
+.sideNavWrapper {
     width: 20vw;
+    min-width: 260px;
     height: 100%;
-    background: 
+    background:
     linear-gradient(#412a5e,#18131e) padding-box,
     linear-gradient(to top, #3F3051 30%, #281F33 100%) border-box;
     color: aliceblue;
-    border-right: 1px solid rgb(0, 0, 0);
     border: none;
     box-shadow: 0px 0px 15px 2px #8e37ff;
-
-    /* Start off-screen */
     transform: translateX(-100%);
     z-index: 999;
 }
 
-
 .sideNavWrapper.open {
-  /* Slide into view */
-  transform: translateX(0);
+    transform: translateX(0);
 }
 
-
-.sideNavHeader{
+.sideNavHeader {
     display: flex;
     padding-top: 10px;
     padding-left: 10px;
@@ -32,29 +25,27 @@
     height: 16vh;
     margin-bottom: 30px;
     border-bottom: 1px solid rgb(0, 0, 0);
-
 }
 
-.backButton{
+.backButton {
     width: 10%;
-
 }
-.profileInfo{
+
+.profileInfo {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
     width: 90%;
-
 }
 
-.SNProfilPic{
+.SNProfilPic {
     height: 80px;
     width: 80px;
     border-radius: 50%;
 }
 
-.sideNavOptions{
+.sideNavOptions {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -63,4 +54,20 @@
     margin-top: 10px;
     padding-left: 10px;
     gap: 20px;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .sideNavWrapper {
+        width: 280px;
+        min-width: unset;
+    }
+}
+
+/* Phone */
+@media (max-width: 480px) {
+    .sideNavWrapper {
+        width: 100vw;
+        min-width: unset;
+    }
 }

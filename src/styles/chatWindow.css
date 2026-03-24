@@ -1,80 +1,81 @@
-
-
-.chatWindowWrapper{
+.chatWindowWrapper {
     display: flex;
     flex-direction: column;
     width: 100%;
     background-color: #281F33;
-    background-image: 
+    background-image:
     linear-gradient(#0f091548),
     url("src/assets/chatbg.png");
     background-repeat: repeat;
     color: aliceblue;
     height: 100vh;
-    
-     
 }
 
-
-.infoBarSection{
+.infoBarSection {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     height: 7vh;
     background-color: #412a5e;
     padding-left: 20px;
-    padding-top: 10px;
+    padding-right: 20px;
     font-size: 1.1rem;
     flex-shrink: 0;
-
 }
 
-.onlineStatus{
-    color: rgb(255, 119, 239); 
-    font-size: 0.9rem; 
+.backBtnMobile {
+    display: none;
+    height: 22px;
+    width: 22px;
+    cursor: pointer;
+    flex-shrink: 0;
 }
 
-.offlineStatus{
-    color: rgb(142, 142, 142); 
-    font-size: 0.9rem; 
+.onlineStatus {
+    color: rgb(255, 119, 239);
+    font-size: 0.9rem;
+}
+
+.offlineStatus {
+    color: rgb(142, 142, 142);
+    font-size: 0.9rem;
 }
 
 .chatSection {
-    flex: 1;            
-    overflow-y: auto;     
+    flex: 1;
+    overflow-y: auto;
     padding: 10px;
 }
 
-ul{
+ul {
     padding: 0;
 }
 
-
-.footerSection{
+.footerSection {
     display: flex;
     align-items: space-between;
     justify-content: center;
     flex-direction: column;
     height: 7vh;
     width: 100%;
-    background-color: #18131e; 
+    background-color: #18131e;
     flex-shrink: 0;
 }
 
-.messageInput{
+.messageInput {
     background-color: transparent;
     border: none;
     width: 100%;
     font-size: 1rem;
     padding-left: 20px;
-
-    
-
 }
 
-.messageInput:focus{
+.messageInput:focus {
     outline: none;
     border: none;
 }
 
-.chatWindowWrapperEmpty{
+.chatWindowWrapperEmpty {
     color: rgba(189, 189, 189, 0.655);
     display: flex;
     align-items: center;
@@ -82,6 +83,40 @@ ul{
     height: 100vh;
     width: 100%;
     font-size: 1.5rem;
-
 }
 
+.loadingText {
+    text-align: center;
+    color: rgba(189, 189, 189, 0.7);
+    padding: 20px;
+}
+
+.errorText {
+    text-align: center;
+    color: #ff6b6b;
+    padding: 20px;
+}
+
+.typingIndicator {
+    color: rgb(255, 119, 239);
+    font-size: 0.85rem;
+    padding-left: 10px;
+    font-style: italic;
+}
+
+/* Phone */
+@media (max-width: 480px) {
+    .backBtnMobile {
+        display: block;
+    }
+
+    .chatWindowWrapperEmpty {
+        font-size: 1.1rem;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .messageInput {
+        font-size: 0.95rem;
+    }
+}

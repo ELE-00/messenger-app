@@ -1,21 +1,59 @@
-
-
-.contentWrapper{
+.contentWrapper {
     display: flex;
     height: 100vh;
 }
 
-.profileDialog {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 1px solid rgb(103, 103, 103);
-  border-radius: 10px;
-  padding: 0;
-  z-index: 1000;
-  height: 40vh;
-  width: 20vw;
-  background-color: rgb(32, 55, 79);
+.sidebarPanel {
+    height: 100%;
+    flex-shrink: 0;
+}
 
+.chatPanel {
+    flex: 1;
+    height: 100%;
+    min-width: 0;
+}
+
+.profileDialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    border-radius: 10px;
+    padding: 0;
+    z-index: 1000;
+    background-color: transparent;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .profileDialog {
+        width: 70vw;
+    }
+}
+
+/* Phone */
+@media (max-width: 480px) {
+    .sidebarPanel {
+        width: 100vw;
+    }
+
+    .sidebarPanel.mobileHidden {
+        display: none;
+    }
+
+    .chatPanel {
+        display: none;
+        width: 100vw;
+    }
+
+    .chatPanel.mobileVisible {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .profileDialog {
+        width: 92vw;
+    }
 }

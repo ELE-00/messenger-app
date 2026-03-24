@@ -15,6 +15,7 @@ const {user} = useAuth();
 const [allUsers, setAllUsers] = useState([]);
 const [openProfile, setOpenProfile] = useState(false);
 const [newGroupChat, setNewGroupChat] = useState(false);
+const [mobileShowChat, setMobileShowChat] = useState(false);
 const [selectedConvo, setSelectedConvo] = useState({
     recipientId: "",
     recipientName: "",
@@ -28,7 +29,8 @@ function onSelectChat(chatId, recipientName, recipientId){
         recipientId: recipientId,
         recipientName: recipientName,
         chatId: chatId
-    })    
+    });
+    setMobileShowChat(true);
 }
 
     //Fetch all users 
@@ -69,12 +71,12 @@ function onSelectChat(chatId, recipientName, recipientId){
         <div className="bodyWrapper">
 
             <div className="contentWrapper">
-                <div className="">
+                <div className={`sidebarPanel${mobileShowChat ? ' mobileHidden' : ''}`}>
                     <Sidebar onSelectChat={onSelectChat} handleOpenProfile={handleOpenProfile} handleNewGroupChat={handleNewGroupChat} allUsers={allUsers}/>
                 </div>
 
-                <div className="chatWindowWrapper">
-                    <ChatWindow item={selectedConvo}/>
+                <div className={`chatPanel${mobileShowChat ? ' mobileVisible' : ''}`}>
+                    <ChatWindow item={selectedConvo} onBack={() => setMobileShowChat(false)}/>
                 </div>
             </div>
 

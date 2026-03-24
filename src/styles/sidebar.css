@@ -1,17 +1,15 @@
-
-
-.sidebarWrapper{
+.sidebarWrapper {
     width: 20vw;
+    min-width: 260px;
     height: 100%;
-    background: 
+    background:
     linear-gradient(#412a5e,#18131e) padding-box,
     linear-gradient(to top, #3F3051 30%, #281F33 100%) border-box;
     color: aliceblue;
     border-right: 1px solid #18131e;
 }
 
-
-.headerSection{
+.headerSection {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,15 +17,35 @@
     padding-right: 5px;
     height: 7vh;
     border-bottom: 1px solid #18131e;
-
 }
 
-.headerIcons{
+.headerIcons {
     height: 25px;
     width: 25px;
 }
 
-.backBtn{
+.backBtn {
     background-color: transparent;
     border: none;
+}
+
+.contentSection {
+    overflow-y: auto;
+    height: calc(100vh - 7vh);
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .sidebarWrapper {
+        width: 280px;
+        min-width: unset;
+    }
+}
+
+/* Phone */
+@media (max-width: 480px) {
+    .sidebarWrapper {
+        width: 100vw;
+        min-width: unset;
+    }
 }

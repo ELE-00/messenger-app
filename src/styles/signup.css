@@ -1,54 +1,71 @@
-
-
-.signupWrapper{
+.signupWrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: 
+    background:
     linear-gradient(#3F3051,#281F33) padding-box,
     linear-gradient(to top, #3F3051 30%, #281F33 100%) border-box;
-
 }
 
-
-.formWrapper{
+.formWrapper {
     position: relative;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background: 
+    background:
     linear-gradient(#412a5e,#18131e) padding-box,
     linear-gradient(to top, #3F3051 30%, #281F33 100%) border-box;
-    padding: 2%;
+    padding: 5%;
     width: 30vw;
+    min-width: 300px;
     border-radius: 10px;
     border: 1px solid #d4b7fadf;
     box-shadow: 0px 0px 15px 2px #8e37ff;
-
 }
 
-.signupForm{
+.signupForm {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    
-
-
 }
 
-.signupInput{    
+.signupInput {
     background-color: #bf8eff21;
     border: none;
     height: 30px;
     border-radius: 10px;
     padding: 2%;
+    color: aliceblue;
 }
 
-.signupBtn{
+.loginLabel {
+    color: aliceblue;
+}
+
+.signupBtn {
     margin-top: 10px;
     border: none;
     border-radius: 10px;
     background-color: #bf8effdf;
     height: 3vh;
+    min-height: 36px;
+    cursor: pointer;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .formWrapper {
+        width: 55vw;
+        min-width: unset;
+    }
+}
+
+/* Phone */
+@media (max-width: 480px) {
+    .formWrapper {
+        width: 88vw;
+        min-width: unset;
+        padding: 6%;
+    }
 }

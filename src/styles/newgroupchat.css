@@ -1,6 +1,4 @@
-
-
-.NGCWrapper{
+.NGCWrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,58 +6,50 @@
     border-radius: 10px;
     height: 60vh;
     width: 30vw;
-    background: 
+    min-width: 340px;
+    background:
     linear-gradient(#412a5e,#18131e) padding-box,
     linear-gradient(to top, #3F3051 30%, #281F33 100%) border-box;
     border: 1px solid #d4b7fadf;
-
-    
 }
 
-.NGCdialogHeader{
+.NGCdialogHeader {
     display: flex;
     align-items: center;
     gap: 10px;
     font-size: 1.2rem;
     padding: 20px;
-
 }
 
-.NGCProfilePicSection{
+.NGCProfilePicSection {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
     font-size: 1.2rem;
     padding: 20px;
-
 }
 
-.groupName{
+.groupName {
     font-size: 1rem;
-    
 }
 
-
-.participantsSection{
+.participantsSection {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: space-between; */
-    background: 
+    background:
     linear-gradient(#412a5e,#18131e) padding-box,
     linear-gradient(to top, #3F3051 30%, #281F33 100%) border-box;
     gap: 10px;
     width: 100%;
     height: 100%;
     border-radius: 10px;
-
-
 }
 
-
-.selectedParticipants{
+.selectedParticipants {
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     min-height: 10px;
     gap: 10px;
@@ -67,23 +57,20 @@
     border-bottom: 1px solid #18131e;
 }
 
-.userTag{
+.userTag {
     padding: 5px;
     background-color: #8268a2;
     width: fit-content;
     border-radius: 10px;
-
 }
 
-.displayAllUsers{
+.displayAllUsers {
     width: 100%;
     height: 100%;
     overflow-y: scroll;
 }
 
-
-
-.NGCform{
+.NGCform {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -91,32 +78,35 @@
     width: 100%;
     height: 100%;
     gap: 20px;
-    
-
 }
 
-
-
-.formBtn{
+.formBtn {
     display: flex;
     justify-content: center;
     width: 100%;
     gap: 20px;
     margin-bottom: 10px;
-
-    
 }
 
-
-
-.NGCProfilPic{
+.NGCProfilPic {
     height: 50px;
     width: 50px;
     border-radius: 50%;
-};
+}
 
+/* Tablet */
+@media (max-width: 768px) {
+    .NGCWrapper {
+        width: 65vw;
+        min-width: unset;
+    }
+}
 
-
-
-
-
+/* Phone */
+@media (max-width: 480px) {
+    .NGCWrapper {
+        width: 92vw;
+        min-width: unset;
+        height: 80vh;
+    }
+}

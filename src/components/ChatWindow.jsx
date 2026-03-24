@@ -4,8 +4,9 @@ import { getMessages as getMessagesAPI, getAllUsers as getAllUsersAPI } from '..
 import MessageItem from './MessageItem';
 import { useAuth } from '../context/AuthContext';
 import { socket } from '../socket';
+import backArrow from '../assets/backarrow.png';
 
-function ChatWindow({item}) {
+function ChatWindow({item, onBack}) {
     const { recipientId, recipientName, chatId } = item;
     const { user } = useAuth();
 
@@ -124,9 +125,14 @@ function ChatWindow({item}) {
     return (
         <div className="chatWindowWrapper">
             <div className="infoBarSection">
-                {recipientName}
-                <div className={isRecipientOnline ? "onlineStatus" : "offlineStatus"}>
-                    {isRecipientOnline ? "Online" : "last seen recently"}
+                {onBack && (
+                    <img className="backBtnMobile" src={backArrow} alt="back" onClick={onBack} />
+                )}
+                <div>
+                    {recipientName}
+                    <div className={isRecipientOnline ? "onlineStatus" : "offlineStatus"}>
+                        {isRecipientOnline ? "Online" : "last seen recently"}
+                    </div>
                 </div>
             </div>
 
