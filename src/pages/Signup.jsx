@@ -2,6 +2,7 @@
 import React, {useState} from 'react';
 import '../styles/signup.css'
 import {signup as signupAPI} from '../api/auth';
+import background from '../assets/background.jpg';
 
 const Signup = () => {
     const [formData, setFormData] = useState({
@@ -38,6 +39,8 @@ const Signup = () => {
 
     return(
         <div className="signupWrapper">
+            
+            <img className="bg" src={background} alt="" />
 
             <div className="formWrapper">
             <h2>Welcome to Whispr</h2>

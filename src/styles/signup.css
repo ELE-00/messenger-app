@@ -8,14 +8,12 @@
     background: 
     linear-gradient(#3F3051,#281F33) padding-box,
     linear-gradient(to top, #3F3051 30%, #281F33 100%) border-box;
-    background-image: 
-    url("src/assets/background.jpg");
-    background-size: 100% 100%;
 
 }
 
 
 .formWrapper{
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 10px;
