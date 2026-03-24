@@ -128,8 +128,8 @@ function ProfileCard ({handleCloseProfile}) {
                     </div>
 
                         <div className="formBtn">
-                            <button className="bioBtn" type="Submit" >Save</button>  
-                            <button className="bioBtn" onClick={handleCloseProfile}>Close</button>   
+                            <button className="bioBtn" type="submit" >Save</button>  
+                            <button className="bioBtn" type="button" onClick={handleCloseProfile}>Close</button>
                         </div>
                     
                 </form>
