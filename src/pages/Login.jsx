@@ -4,6 +4,7 @@ import '../styles/login.css'
 import {login as loginAPI} from '../api/auth';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from "react-router-dom";
+import background from '../assets/background.jpg';
 
 const Login = () => {
 
@@ -46,6 +47,8 @@ const Login = () => {
 
     return(
         <div className="loginWrapper">
+
+            <img className="bg" src={background} alt="" />
 
             <div className="formWrapper">
             <h2>Welcome to Whispr</h2>
